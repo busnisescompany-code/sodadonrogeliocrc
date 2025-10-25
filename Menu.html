@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo - Soda Don Rogelio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-color: #d4a762;
+            --secondary-color: #8b4513;
+            --accent-color: #a52a2a;
+            --light-color: #f8f5f0;
+            --dark-color: #2c2416;
+            --text-color: #333;
+            --bg-color: #fff;
+            --card-bg: #f9f9f9;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+        }
+
+        .dark-mode {
+            --primary-color: #d4a762;
+            --secondary-color: #a56a3a;
+            --accent-color: #c44d4d;
+            --light-color: #1e1e1e;
+            --dark-color: #f0f0f0;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #2d2d2d;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 6px;
+            margin-right: 12px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            margin-right: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Animaciones profesionales */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px var(--primary-color); }
+            50% { box-shadow: 0 0 20px var(--primary-color); }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .slide-in-left {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 0.8s ease-out forwards;
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        /* Menu Categories */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background-color: var(--light-color);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .menu-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform: translateY(0);
+            opacity: 0;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .menu-card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-card:hover .menu-card-img img {
+            transform: scale(1.1);
+        }
+
+        .menu-card-content {
+            padding: 20px;
+        }
+
+        .menu-card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .menu-card-content p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* Efectos especiales para las tarjetas */
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 167, 98, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+        }
+
+        .menu-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Elementos interactivos adicionales */
+        .interactive-hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .interactive-hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .interactive-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .floating-food-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .food-icon {
+            font-size: 2.5rem;
+            color: white;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .food-icon:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .food-icon:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .food-icon:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .interactive-counter {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .counter-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .order-highlight {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite, bounce 3s infinite;
+            cursor: pointer;
+        }
+
+        .order-highlight i {
+            font-size: 1.2rem;
+        }
+
+        .floating-action-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: bounce 2s infinite;
+        }
+
+        .floating-action-btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .stagger-animation > * {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Ajustes para el menú de Canva */
+        .canva-menu-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .canva-menu-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .canva-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 70%; /* Ajuste para formato vertical */
+            overflow: hidden;
+            border-radius: var(--border-radius);
+        }
+
+        .canva-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .canva-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .canva-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--bg-color);
+                width: 80%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .interactive-counter {
+                gap: 20px;
+            }
+
+            .counter-item {
+                min-width: 120px;
+            }
+
+            .order-highlight {
+                width: 90%;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .canva-embed {
+                padding-top: 120%; /* Más alto en móviles para mejor legibilidad */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+
+            .interactive-hero h2 {
+                font-size: 2rem;
+            }
+
+            .floating-food-icons {
+                gap: 15px;
+            }
+
+            .food-icon {
+                font-size: 2rem;
+            }
+
+            .canva-embed {
+                padding-top: 140%; /* Aún más alto para móviles muy pequeños */
+            }
+
+            .counter-item {
+                min-width: 100px;
+                padding: 15px;
+            }
+
+            .counter-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 100px) {
+            .interactive-counter {
+                gap: 10px;
+            }
+            
+            .counter-item {
+                min-width: 90px;
+                padding: 10px;
+            }
+            
+            .counter-number {
+                font-size: 1.8rem;
+            }
+            
+            .counter-label {
+                font-size: 0.9rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html"><img src="./Img/images (5).jpg" alt="Logo Soda Don Rogelio" class="floating"></a>
+                <h1>Soda <span>Don Rogelio</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="#menu-completo">Menú Completo</a></li>
+                    <li><a href="index.html#galeria">Galería</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Interactiva -->
+    <section class="interactive-hero fade-in-up">
+        <div class="container">
+            <h2>Descubre Nuestro Menú</h2>
+            <p>Sabores auténticos que han deleitado a generaciones. Cada plato cuenta una historia de tradición y sabor.</p>
+            
+            <div class="floating-food-icons">
+                <div class="food-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="food-icon">
+                    <i class="fas fa-cheese"></i>
+                </div>
+                <div class="food-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <div class="food-icon">
+                    <i class="fas fa-fish"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu-completo" style="padding-top: 0;">
+        <div class="container">
+            <!-- Contadores Interactivos -->
+            <div class="interactive-counter">
+                <div class="counter-item pulse">
+                    <div class="counter-number" data-count="25">0</div>
+                    <div class="counter-label">Platos Disponibles</div>
+                </div>
+                <div class="counter-item pulse">
+                    <div class="counter-number" data-count="80">0</div>
+                    <div class="counter-label">Años de Experiencia</div>
+                </div>
+                <div class="counter-item pulse">
+                    <div class="counter-number" data-count="1000">0</div>
+                    <div class="counter-label">Clientes Satisfechos</div>
+                </div>
+            </div>
+
+            <!-- Category Navigation -->
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG2j_cP6OY&#x2F;YNOQVkyxAX9oXzBs2viJyQ&#x2F;view?utm_content=DAG2j_cP6OY&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a> 
+<div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 70%; height: 70%; top: 0; right: 1; border: none; padding: 1;margin: 1;"
+    src="https://www.canva.com/design/DAG2kD94Yuk/tvJdYU20f9R5uUhMrdPvSQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+ <div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2kD94Yuk/tvJdYU20f9R5uUhMrdPvSQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG2kD94Yuk&#x2F;tvJdYU20f9R5uUhMrdPvSQ&#x2F;view?utm_content=DAG2kD94Yuk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a> 
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    <div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2kD94Yuk/tvJdYU20f9R5uUhMrdPvSQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG2kD94Yuk&#x2F;tvJdYU20f9R5uUhMrdPvSQ&#x2F;view?utm_content=DAG2kD94Yuk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a> 
+  </iframe>
+</div>
+            <!-- Botón para volver al inicio -->
+            <div class="back-home">
+                <a href="./index.html" class="btn pulse">Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón flotante de acción -->
+    <div class="floating-action-btn" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Llamada a la acción fija -->
+    
+
+    <!-- Footer -->
+    
+    <script>
+        // Toggle del menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Toggle del modo oscuro
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Navegación de categorías del menú
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const menuCategories = document.querySelectorAll('.menu-category');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover clase active de todos los botones
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Agregar clase active al botón clickeado
+                btn.classList.add('active');
+                
+                // Ocultar todas las categorías
+                menuCategories.forEach(category => {
+                    category.style.display = 'none';
+                });
+                
+                // Mostrar la categoría seleccionada
+                const categoryId = btn.getAttribute('data-category');
+                document.getElementById(categoryId).style.display = 'block';
+            });
+        });
+
+        // Botón de volver arriba
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contador animado
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const duration = 2000; // 2 segundos
+                const step = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                // Iniciar cuando sea visible
+                const counterObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCounter();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+                
+                counterObserver.observe(counter);
+            });
+        }
+
+        // Efecto de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.menu-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+
+        // Animación escalonada para elementos
+        function initStaggerAnimation() {
+            const staggerElements = document.querySelectorAll('.stagger-animation');
+            
+            staggerElements.forEach(el => {
+                const children = el.children;
+                Array.from(children).forEach((child, index) => {
+                    child.style.animationDelay = `${index * 0.1}s`;
+                });
+            });
+        }
+
+        // Efecto de sonido al hacer clic en botones (simulado)
+        function addClickEffects() {
+            const buttons = document.querySelectorAll('.btn, .category-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.add('shake');
+                    setTimeout(() => {
+                        this.classList.remove('shake');
+                    }, 500);
+                });
+            });
+        }
+
+        // Inicializar todas las funciones cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            initCounters();
+            initStaggerAnimation();
+            addClickEffects();
+        });
+    </script>
+</body>
+</html>

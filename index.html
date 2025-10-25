@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soda Don Rogelio - Gastronomía Tradicional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d4a762;
+            --secondary-color: #8b4513;
+            --accent-color: #a52a2a;
+            --light-color: #f8f5f0;
+            --dark-color: #2c2416;
+            --text-color: #333;
+            --bg-color: #fff;
+            --card-bg: #f9f9f9;
+            --footer-bg: #2c2416;
+            --footer-text: #f8f5f0;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+        }
+
+        .dark-mode {
+            --primary-color: #d4a762;
+            --secondary-color: #a56a3a;
+            --accent-color: #c44d4d;
+            --light-color: #1e1e1e;
+            --dark-color: #f0f0f0;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #2d2d2d;
+            --footer-bg: #1a1a1a;
+            --footer-text: #e0e0e0;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 6px;
+            margin-right: 12px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            margin-right: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./Img/13.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Estadísticas */
+        .interactive-features {
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        /* Selector de platillos */
+        .dish-selector {
+            margin-top: 50px;
+        }
+
+        .dish-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .dish-category {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dish-category.active,
+        .dish-category:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .dish-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .dish-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .dish-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .dish-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .dish-item h4 {
+            padding: 15px;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .dish-item .price {
+            display: block;
+            padding: 0 15px 15px;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        /* Featured Menu Section */
+        .featured-menu {
+            text-align: center;
+            background-color: var(--light-color);
+        }
+
+        .featured-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .menu-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-card:hover .menu-card-img img {
+            transform: scale(1.05);
+        }
+
+        .menu-card-content {
+            padding: 20px;
+        }
+
+        .menu-card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .menu-card-content p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+            cursor: pointer;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 900px;
+            object-fit: cover;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .carousel-control.prev {
+            left: 20px;
+        }
+
+        .carousel-control.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background-color: white;
+        }
+
+        /* Modal de galería */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .modal-nav button {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-nav button:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Social Media */
+        .social-media {
+            background-color: var(--light-color);
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-detail i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 50px 0 20px;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Live Stats */
+        .live-stats {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .live-stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .live-stat {
+            padding: 10px;
+        }
+
+        .live-stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .live-stat-label {
+            font-size: 0.9rem;
+        }
+
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background-color: var(--bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background-color: var(--light-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chatbot-input button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .quick-questions, .smart-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quick-question, .smart-suggestion {
+            background-color: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-question:hover, .smart-suggestion:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Botón de volver arriba */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--bg-color);
+                width: 80%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .live-stats-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .featured-items {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-item img {
+                height: 300px;
+            }
+
+            .chatbot-window {
+                width: 280px;
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+
+ 
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="./index.html"><img src="./Img/images (5).jpg" alt="Logo Soda Don Rogelio"></a>
+                <h1>Soda <span>Don Rogelio</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="./Menu.html">Menú Completo</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h2>Sabores que cuentan historias</h2>
+            <p>Disfruta de la auténtica gastronomía tradicional en un ambiente acogedor y familiar</p>
+            <a href="./Menu.html" class="btn">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Más de 70 años sirviendo tradición</h3>
+                    <p>En el año 1975, don Rogelio decidió retirarse del negocio de la soda, dejando como legado una valiosa tradición familiar. Su hija, doña Marina Gutiérrez, continuó con el emprendimiento y, con el paso del tiempo, la familia Gutiérrez heredera del legado de don Rogelio registró la patente de la reconocida bebida, con el propósito de proteger la receta original y preservar su autenticidad para las futuras generaciones.
+
+Años más tarde, doña Marina transmitió la receta de la emblemática “leche dormida” a su hijo, Vinicio Gutiérrez, quien, siguiendo la tradición, compartió posteriormente el secreto familiar con su hijo Esteban Gutiérrez. En la actualidad, Esteban honra la memoria de su bisabuelo a través de su emprendimiento, “Cafetería Don Rogelio”, donde mantiene viva la esencia y el sabor que han caracterizado a la familia Gutiérrez por generaciones.
+</p>
+                    <p>Es el cantón de Cañas en donde el probar esta bebida se convirtió en todo un requisito para todos aquellos foráneos que pasan por tierras guanacastecas, o bien, sus mismos pobladores.</p>
+                    <a href="#contacto" class="btn">Visítanos</a>
+                </div>
+                <div class="about-image">
+                    <img src="./Img/6.jpg" alt="Interior de Soda Don Rogelio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Features Section -->
+    <section class="interactive-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experiencia Don Rogelio</h2>
+            </div>
+            
+            <!-- Contador de clientes felices -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="80">0</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50000">0</div>
+                    <div class="stat-label">Clientes Satisfechos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Platillos Tradicionales</div>
+                </div>
+            </div>
+            
+            <!-- Selector de platillos interactivo -->
+            <div class="dish-selector">
+                <h3>Descubre Nuestros Sabores</h3>
+                <div class="dish-categories">
+                    <button class="dish-category active" data-category="tradicional">MENÚ</button>
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG2j_cP6OY&#x2F;YNOQVkyxAX9oXzBs2viJyQ&#x2F;view?utm_content=DAG2j_cP6OY&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</div>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAG2j_cP6OY/YNOQVkyxAX9oXzBs2viJyQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAG2j_cP6OY&#x2F;YNOQVkyxAX9oXzBs2viJyQ&#x2F;view?utm_content=DAG2j_cP6OY&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>     </section>
+
+    <!-- Featured Menu Section -->
+    <section class="featured-menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platos Destacados</h2>
+            </div>
+            <div class="featured-items">
+                <!-- Plato 1 -->
+                <div class="menu-card">
+                    <div class="menu-card-img">
+                        <img src="./Img/leche dormida.jpg" alt="Casado Tradicional">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Leche Dormida</h3>
+                        
+                        <span class="price">₡1,850</span>
+                    </div>
+                </div>
+                <!-- Plato 2 -->
+                <div class="menu-card">
+                    <div class="menu-card-img">
+                        <img src="./Img/29.jpeg" alt="Gallo Pinto">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Chiriviscos</h3>
+                        <span class="price">₡600</span>
+                    </div>
+                </div>
+                <!-- Plato 3 -->
+                <div class="menu-card">
+                    <div class="menu-card-img">
+                        <img src="./Img/pasteles.jpg" alt="Olla de Carne">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Pasteles</h3>
+                        <span class="price">₡1,200</span>
+                    </div>
+                </div>
+            </div>
+            <a href="./Menu.html" class="btn">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Galería</h2>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./Img/1.jpg" alt="Interior del restaurante">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/2.jpg" alt="Preparación de alimentos">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/3.jpg" alt="Platillos servidos">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/4.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/5.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/6.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/7.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/8.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/9.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/10.jpg" alt="Clientes disfrutando">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Img/11.jpg" alt="Clientes disfrutando">
+                    </div>
+                </div>
+                <button class="carousel-control prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-control next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="social-media">
+        <div class="container">
+            <div class="section-title">
+                <h2>Síguenos en Redes Sociales</h2>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1BQuXxuvem/?mibextid=wwXIfr" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=50670127593&text&context=AfdFfIbeOyjsH70yLE6jz8ozfwt_gnIq43QWukgYj2hYRK3EtEFfdvePGmzOED1i-tjWH6jF9xmfs4gOnQvxPrMwm9LZeBBdJYmV_ZD-6agjrLRMMSiwldqwMIsNF1qJmrf4h282bJ6OIbYCeA&source&app=facebook" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Visítanos</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Cañas, Guanacaste, Costa Rica, Frente al Banco de Costa Rica</p>
+                        </div>
+                        <div class="contact-content">
+                <div class="contact-info">
+              
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Liberia, Guanacaste, Costa Rica, Frente a Tienda Paco</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+506 7012 7593</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>compay020967@hotmail.com</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+
+                            <p>marina060955@hotmail.com</p>
+                            
+
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>Lunes a Viernes: 9:00 AM - 4:00 PM</p>
+
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <p>Sábados: 9:00 AM - 12:00 PM</p>
+                            
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.947769123216!2d-85.0924747!3d10.4257196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9ffac76c73cd7b%3A0xc548e9b7052d2add!2sSoda%20Don%20Rogelio!5e0!3m2!1ses!2scr!4v1761171913227!5m2!1ses!2scr" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Asunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Soda Don Rogelio</h3>
+                    <p>Sabores auténticos que conectan generaciones. </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="./Menu.html">Menú Completo</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Horario</h3>
+                    <ul class="footer-links">
+                        <li>Lunes - Viernes: 9:00 AM - 4:00 PM</li>
+                        <li>Sábado: 7:00 AM - 12:00 PM</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Soda Don Rogelio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de volver arriba -->
+    <button class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Asistente Virtual</h3>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    ¡Hola! Soy el asistente de Soda Don Rogelio. ¿En qué puedo ayudarte hoy?
+                </div>
+                <div class="quick-questions">
+                    <div class="quick-question" data-question="¿Cuál es su horario?">¿Cuál es su horario?</div>
+                    
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje...">
+                <button id="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de galería -->
+    <div class="gallery-modal" id="gallery-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <img src="" alt="" id="modal-image">
+            <div class="modal-nav">
+                <button class="modal-prev" id="modal-prev">‹</button>
+                <button class="modal-next" id="modal-next">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle del menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Toggle del modo oscuro
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Verificar preferencia del usuario
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+
+        // Funcionalidad del carrusel
+        const carouselInner = document.querySelector('.carousel-inner');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+
+        let currentIndex = 0;
+        const totalItems = carouselItems.length;
+
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar indicadores
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        });
+
+        // Agregar evento a los indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto avanzar el carrusel cada 5 segundos
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 5000);
+
+        // Funcionalidad del chatbot
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const quickQuestions = document.querySelectorAll('.quick-question');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.style.display = 'flex';
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        // Respuestas del chatbot
+        const botResponses = {
+            "hola": "¡Hola! Bienvenido a Soda Don Rogelio. ¿En qué puedo ayudarte?",
+    
+            "precio": "Nuestros precios van desde ₡1,200 para bebidas",
+            "horario": "Abrimos de Lunes a Sabado: 9:00 AM - 4:00 PM, Sábados: 9:00 AM -12:00 PM y Domingos: Cerrado.",
+           
+            "ubicacion": "Estamos en Cañas, Guanacaste, Costa Rica, frente al Banco de Costa Rica.",
+            "especial": "Nuestra especialidad es la Leche Dormida.",
+   
+            "gracias": "¡De nada! ¿Hay algo más en lo que pueda ayudarte?",
+            "default": "Lo siento, no entendí tu pregunta. ¿Podrías reformularla? O pregúntame sobre nuestro menú, horarios o ubicación."
+        };
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function processMessage(message) {
+            const lowerMessage = message.toLowerCase();
+            let response = botResponses.default;
+            
+            for (const key in botResponses) {
+                if (lowerMessage.includes(key)) {
+                    response = botResponses[key];
+                    break;
+                }
+            }
+            
+            // Simular tiempo de respuesta
+            setTimeout(() => {
+                addMessage(response);
+                // Mostrar sugerencias inteligentes después de la respuesta
+                showSmartSuggestions(message);
+            }, 1000);
+        }
+
+        function showSmartSuggestions(lastUserMessage) {
+            // Eliminar sugerencias anteriores si existen
+            const existingSuggestions = document.querySelector('.smart-suggestions');
+            if (existingSuggestions) {
+                existingSuggestions.remove();
+            }
+            
+            const suggestionsContainer = document.createElement('div');
+            suggestionsContainer.className = 'smart-suggestions';
+            
+            let suggestions = [];
+            
+            if (lastUserMessage.includes('menu') || lastUserMessage.includes('comida')) {
+                suggestions = ['¿Qué me recomiendas?', '¿Tienen opciones vegetarianas?', '¿Cuál es el precio?'];
+            } else if (lastUserMessage.includes('horario') || lastUserMessage.includes('abren')) {
+                suggestions = ['¿Abren los domingos?', '¿Hasta qué hora?', '¿Necesito reservación?'];
+            } else {
+                suggestions = ['Ver menú completo', 'Conocer horarios', 'Hacer una reservación', 'Ubicación'];
+            }
+            
+            suggestions.forEach(suggestion => {
+                const suggestionEl = document.createElement('div');
+                suggestionEl.className = 'smart-suggestion';
+                suggestionEl.textContent = suggestion;
+                suggestionEl.addEventListener('click', () => {
+                    addMessage(suggestion, true);
+                    processMessage(suggestion);
+                });
+                suggestionsContainer.appendChild(suggestionEl);
+            });
+            
+            chatbotMessages.appendChild(suggestionsContainer);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        chatbotSend.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+                processMessage(message);
+            }
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chatbotSend.click();
+            }
+        });
+
+        quickQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const message = question.getAttribute('data-question');
+                addMessage(message, true);
+                processMessage(message);
+            });
+        });
+
+        // Smooth scroll para enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Cerrar menú móvil si está abierto
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Contador animado
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const duration = 2000; // 2 segundos
+                const step = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                // Iniciar cuando sea visible
+                const counterObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCounter();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+                
+                counterObserver.observe(counter);
+            });
+        }
+
+        // Selector de platillos interactivo
+        function initDishSelector() {
+            const categories = document.querySelectorAll('.dish-category');
+            const showcase = document.querySelector('.dish-showcase');
+            
+           
+            function showDishes(category) {
+                showcase.innerHTML = '';
+                dishes[category].forEach(dish => {
+                    const dishEl = document.createElement('div');
+                    dishEl.className = 'dish-item';
+                    dishEl.innerHTML = `
+                        <img src="${dish.image}" alt="${dish.name}">
+                        <h4>${dish.name}</h4>
+                        <span class="price">${dish.price}</span>
+                    `;
+                    showcase.appendChild(dishEl);
+                });
+            }
+            
+            categories.forEach(category => {
+                category.addEventListener('click', () => {
+                    categories.forEach(c => c.classList.remove('active'));
+                    category.classList.add('active');
+                    showDishes(category.getAttribute('data-category'));
+                });
+            });
+            
+            // Mostrar platillos tradicionales por defecto
+            showDishes('tradicional');
+        }
+
+        // Botón de volver arriba
+        function initScrollToTop() {
+            const scrollBtn = document.getElementById('scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollBtn.style.display = 'flex';
+                } else {
+                    scrollBtn.style.display = 'none';
+                }
+            });
+            
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Galería modal
+        function initGalleryModal() {
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const modal = document.getElementById('gallery-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalClose = document.getElementById('modal-close');
+            const modalPrev = document.getElementById('modal-prev');
+            const modalNext = document.getElementById('modal-next');
+            
+            let currentModalIndex = 0;
+            
+            carouselItems.forEach((item, index) => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    openModal(index);
+                });
+            });
+            
+            function openModal(index) {
+                currentModalIndex = index;
+                const imgSrc = carouselItems[index].querySelector('img').src;
+                modalImage.src = imgSrc;
+                modal.style.display = 'flex';
+            }
+            
+            function updateModalImage(newIndex) {
+                currentModalIndex = (newIndex + carouselItems.length) % carouselItems.length;
+                modalImage.src = carouselItems[currentModalIndex].querySelector('img').src;
+            }
+            
+            modalNext.addEventListener('click', () => updateModalImage(currentModalIndex + 1));
+            modalPrev.addEventListener('click', () => updateModalImage(currentModalIndex - 1));
+            
+            modalClose.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Estadísticas en tiempo real
+        function initLiveStats() {
+            const onlineUsers = document.getElementById('online-users');
+            const todayVisits = document.getElementById('today-visits');
+            const totalVisits = document.getElementById('total-visits');
+            const activeChats = document.getElementById('active-chats');
+            
+            // Simular datos en tiempo real
+            function updateStats() {
+                // Usuarios en línea (entre 8 y 20)
+                let currentOnline = parseInt(onlineUsers.textContent);
+                let newOnline = Math.max(8, Math.min(20, currentOnline + Math.floor(Math.random() * 5) - 2));
+                onlineUsers.textContent = newOnline;
+                
+                // Visitas hoy (aumento gradual)
+                let currentToday = parseInt(todayVisits.textContent.replace(',', ''));
+                todayVisits.textContent = (currentToday + Math.floor(Math.random() * 3)).toLocaleString();
+                
+                // Total visitas (aumento gradual)
+                let currentTotal = parseInt(totalVisits.textContent.replace(',', ''));
+                totalVisits.textContent = (currentTotal + Math.floor(Math.random() * 2)).toLocaleString();
+                
+                // Chats activos (entre 1 y 5)
+                let currentChats = parseInt(activeChats.textContent);
+                let newChats = Math.max(1, Math.min(5, currentChats + Math.floor(Math.random() * 3) - 1));
+                activeChats.textContent = newChats;
+            }
+            
+            // Actualizar cada 10 segundos
+            setInterval(updateStats, 10000);
+            
+            // También actualizar cuando la página gana foco
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    updateStats();
+                }
+            });
+        }
+
+        // Formulario de contacto
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simular envío del formulario
+                const btn = this.querySelector('.btn');
+                const originalText = btn.textContent;
+                
+                btn.textContent = 'Enviando...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.textContent = '¡Mensaje Enviado!';
+                    btn.style.backgroundColor = '#28a745';
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.style.backgroundColor = '';
+                        contactForm.reset();
+                    }, 2000);
+                }, 1500);
+            });
+        }
+
+        // Inicializar todas las funciones cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            initCounters();
+            initDishSelector();
+            initScrollToTop();
+            initGalleryModal();
+            initLiveStats();
+            initContactForm();
+        });
+    </script>
+</body>
+
+</html>
+
